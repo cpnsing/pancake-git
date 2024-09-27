@@ -134,7 +134,7 @@ type AppPropsWithLayout = AppProps & {
 }
 
 // const ProductionErrorBoundary = process.env.NODE_ENV === 'production' ? SentryErrorBoundary : Fragment
-const ProductionErrorBoundary = process.env.NODE_ENV === 'production' ? Fragment : Fragment
+// const ProductionErrorBoundary = process.env.NODE_ENV === 'production' ? Fragment : Fragment
 
 const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   if (Component.pure) {
@@ -147,7 +147,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
   const isShowScrollToTopButton = Component.isShowScrollToTopButton || true
 
   return (
-    <ProductionErrorBoundary>
+    <>
       <ShowMenu>
         <Layout>
           <Component {...pageProps} />
@@ -159,7 +159,7 @@ const App = ({ Component, pageProps }: AppPropsWithLayout) => {
       <NetworkModal pageSupportedChains={Component.chains} />
       <TransactionsDetailModal />
       {isShowScrollToTopButton && <ScrollToTopButtonV2 />}
-    </ProductionErrorBoundary>
+    </>
   )
 }
 
