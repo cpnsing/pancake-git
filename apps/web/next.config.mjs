@@ -173,4 +173,4 @@ const config = {
   },
 }
 
-export default withBundleAnalyzer(withVanillaExtract(withSentryConfig(withAxiom(config), sentryWebpackPluginOptions)))
+export default withBundleAnalyzer(withVanillaExtract(withSentryConfig(withAxiom(config))))
