@@ -50,7 +50,7 @@ import { Field } from '../../../state/burn/actions'
 import { useGasPrice, useUserSlippageTolerance } from '../../../state/user/hooks'
 import Page from '../../Page'
 import ConfirmLiquidityModal from '../../Swap/components/ConfirmRemoveLiquidityModal'
-import { logError } from '../../../utils/sentry'
+
 import { CommonBasesType } from '../../../components/SearchModal/types'
 import { useStableDerivedBurnInfo } from './hooks/useStableDerivedBurnInfo'
 import SettingsModal from '../../../components/Menu/GlobalSettings/SettingsModal'
@@ -220,7 +220,7 @@ export default function RemoveStableLiquidity({ currencyA, currencyB, currencyId
         })
         .catch((err) => {
           if (err && err.code !== 4001) {
-            logError(err)
+        
             console.error(`Remove Liquidity failed`, err, args)
           }
           setLiquidityState({

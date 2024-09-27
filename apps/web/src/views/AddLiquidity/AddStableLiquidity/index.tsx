@@ -13,7 +13,7 @@ import {
   IconButton,
   PencilIcon,
 } from '@pancakeswap/uikit'
-import { logError } from 'utils/sentry'
+
 import { useTranslation } from '@pancakeswap/localization'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { CommitButton } from 'components/CommitButton'
@@ -205,7 +205,7 @@ export default function AddStableLiquidity({ currencyA, currencyB }) {
       )
       .catch((err) => {
         if (err && err.code !== 4001) {
-          logError(err)
+       
           console.error(`Add Liquidity failed`, err, args, value)
         }
         setLiquidityState({

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { withSentryConfig } from '@sentry/nextjs'
+
 import { withAxiom } from 'next-axiom'
 import BundleAnalyzer from '@next/bundle-analyzer'
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
@@ -174,4 +174,4 @@ const config = {
   },
 }
 
-export default withBundleAnalyzer(withVanillaExtract(withSentryConfig(withAxiom(config))))
+export default withBundleAnalyzer(withVanillaExtract(withAxiom(config)))

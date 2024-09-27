@@ -4,7 +4,7 @@ import { useToast } from '@pancakeswap/uikit'
 import { TransactionReceipt, TransactionResponse } from '@ethersproject/providers'
 import { ToastDescriptionWithTx } from 'components/Toast'
 
-import { logError, isUserRejected } from 'utils/sentry'
+
 import useActiveWeb3React from './useActiveWeb3React'
 
 export type TxResponse = TransactionResponse | null
@@ -38,7 +38,7 @@ export default function useCatchTxError(): CatchTxErrorReturn {
 
   const handleNormalError = useCallback(
     (error, tx?: TxResponse) => {
-      logError(error)
+   
 
       if (tx) {
         toastError(
@@ -74,7 +74,7 @@ export default function useCatchTxError(): CatchTxErrorReturn {
 
         return receipt
       } catch (error: any) {
-        if (!isUserRejected(error)) {
+        if (error) {
           if (!tx) {
             handleNormalError(error)
           } else {
@@ -87,7 +87,7 @@ export default function useCatchTxError(): CatchTxErrorReturn {
                 if (isGasEstimationError(err)) {
                   handleNormalError(error, tx)
                 } else {
-                  logError(err)
+            
 
                   let recursiveErr = err
 
@@ -151,7 +151,7 @@ export default function useCatchTxError(): CatchTxErrorReturn {
 
         return tx
       } catch (error: any) {
-        if (!isUserRejected(error)) {
+        if (error) {
           if (!tx) {
             handleNormalError(error)
           } else {
@@ -164,7 +164,7 @@ export default function useCatchTxError(): CatchTxErrorReturn {
                 if (isGasEstimationError(err)) {
                   handleNormalError(error, tx)
                 } else {
-                  logError(err)
+               
 
                   let recursiveErr = err
 

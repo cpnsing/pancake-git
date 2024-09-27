@@ -15,7 +15,7 @@ import {
   IconButton,
   PencilIcon,
 } from '@pancakeswap/uikit'
-import { logError } from 'utils/sentry'
+
 import { useIsTransactionUnsupported, useIsTransactionWarning } from 'hooks/Trades'
 import { useTranslation } from '@pancakeswap/localization'
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
@@ -301,7 +301,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       )
       .catch((err) => {
         if (err && err.code !== 4001) {
-          logError(err)
+        
           console.error(`Add Liquidity failed`, err, args, value)
         }
         setLiquidityState({
@@ -458,7 +458,7 @@ export default function AddLiquidity({ currencyA, currencyB }) {
       })
       .catch((err) => {
         if (err && err.code !== 4001) {
-          logError(err)
+       
           console.error(`Add Liquidity failed`, err, args, value)
         }
         setLiquidityState({

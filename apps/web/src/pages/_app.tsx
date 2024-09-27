@@ -9,7 +9,7 @@ import { useAccountEventListener } from 'hooks/useAccountEventListener'
 import useEagerConnect from 'hooks/useEagerConnect'
 import useEagerConnectMP from 'hooks/useEagerConnect.bmp'
 import useLockedEndNotification from 'hooks/useLockedEndNotification'
-import useSentryUser from 'hooks/useSentryUser'
+
 import useThemeCookie from 'hooks/useThemeCookie'
 import useUserAgent from 'hooks/useUserAgent'
 import { NextPage } from 'next'
@@ -39,7 +39,7 @@ function GlobalHooks() {
   useEagerConnect()
   useUserAgent()
   useAccountEventListener()
-  useSentryUser()
+
   useThemeCookie()
   useLockedEndNotification()
   return null
@@ -50,7 +50,7 @@ function MPGlobalHooks() {
   useEagerConnectMP()
   useUserAgent()
   useAccountEventListener()
-  useSentryUser()
+
   useLockedEndNotification()
   return null
 }

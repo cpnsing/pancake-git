@@ -3,7 +3,7 @@
 import { atom } from 'jotai'
 import type { WritableAtom } from 'jotai'
 import { RESET, unstable_NO_STORAGE_VALUE as NO_STORAGE_VALUE } from 'jotai/vanilla/utils'
-import { logError } from './sentry'
+
 
 export { unstable_NO_STORAGE_VALUE as NO_STORAGE_VALUE } from 'jotai/vanilla/utils'
 
@@ -166,7 +166,7 @@ export default function atomWithStorage<Value>(
       } catch (error) {
         // Add try-catch to avoid breaking the app when localStorage is full.
         console.error(`localStorage error with key ${key}`)
-        logError(error)
+     
 
         return undefined
       }
